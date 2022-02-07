@@ -12,7 +12,7 @@ def main():
                          StructField("temperature", FloatType(), True)])
 
     # // Read the file as dataframe
-    df = spark.read.schema(schema).csv("data/1800.csv")
+    df = spark.read.schema(schema).csv("logs/1800.csv")
     df.printSchema()
 
     # Filter out all but TMIN entries

@@ -4,7 +4,7 @@ from pyspark.sql import functions as func
 
 def main():
   spark = SparkSession.builder.appName("FriendsByAge").getOrCreate()
-  lines = spark.read.option("header", "true").option("inferSchema", "true").csv("data/fakefriends-header.csv")
+  lines = spark.read.option("header", "true").option("inferSchema", "true").csv("logs/fakefriends-header.csv")
 
   # Select only age and numFriends columns
   friendsByAge = lines.select("age", "friends")

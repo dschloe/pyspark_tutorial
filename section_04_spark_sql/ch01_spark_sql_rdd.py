@@ -10,7 +10,7 @@ def main():
     # Create a SparkSession
     spark = SparkSession.builder.appName("SparkSQL").getOrCreate()
 
-    lines = spark.sparkContext.textFile("data/fakefriends.csv")
+    lines = spark.sparkContext.textFile("logs/fakefriends.csv")
     people = lines.map(mapper)
 
     # Infer the schema, and register the DataFrame as a table.

@@ -12,8 +12,8 @@ def main():
                                       StructField("amount_spent", FloatType(), True)
                                       ])
 
-    # Load up the data into spark dataset
-    customersDF = spark.read.schema(customerOrderSchema).csv("data/customer-orders.csv")
+    # Load up the logs into spark dataset
+    customersDF = spark.read.schema(customerOrderSchema).csv("logs/customer-orders.csv")
 
     totalByCustomer = customersDF.groupBy("cust_id").agg(func.round(func.sum("amount_spent"), 2) \
                                           .alias("total_spent"))

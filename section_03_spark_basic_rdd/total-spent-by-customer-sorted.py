@@ -8,7 +8,7 @@ def main():
     conf = SparkConf().setMaster("local").setAppName("SpendByCustomerSorted")
     sc = SparkContext(conf = conf)
 
-    input = sc.textFile("data/customer-orders.csv")
+    input = sc.textFile("logs/customer-orders.csv")
     mappedInput = input.map(extractCustomerPricePairs)
     totalByCustomer = mappedInput.reduceByKey(lambda x, y: x + y)
 

@@ -3,12 +3,11 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
 
-
 def main():
     # Create a SparkSession
     spark = SparkSession.builder.appName("SparkSQL").getOrCreate()
     # Load a text file and convert each line to a Row.
-    lines = spark.sparkContext.textFile("data/people.txt")
+    lines = spark.sparkContext.textFile("logs/people.txt")
     parts = lines.map(lambda l: l.split(","))
     people = parts.map(lambda p: Row(name=p[0], age=int(p[1])))
 
