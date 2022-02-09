@@ -7,7 +7,7 @@ def main():
     spark = SparkSession.builder.appName("SparkSQL").getOrCreate()
 
     # Load a text file and convert each line to a Row.
-    lines = spark.sparkContext.textFile("logs/people.txt")
+    lines = spark.sparkContext.textFile("data/people.txt")
     parts = lines.map(lambda l: l.split(","))
 
     # Each line is converted to a tuple.
