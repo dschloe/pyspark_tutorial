@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
+
 spark = SparkSession.builder.master("local[1]").appName("MLSampleTutorial").getOrCreate()
 
 # Import the data to a DataFrame
